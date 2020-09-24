@@ -40,7 +40,8 @@
         </plugins>
     </build>
 
-    <scm>    <connection>scm:git:https://${sallauddin023}:${poloclub1@}@github.com/sallauddin023/mypetclinic.git</connection>
+    <scm>
+        <connection>scm:git:https://${sallauddin023}:${poloclub1@}@github.com/sallauddin023/mypetclinic.git</connection>
         <url>https://github.com/sallauddin023/mypetclinic.git</url>
         <tag>HEAD</tag>
     </scm>
