@@ -1,0 +1,49 @@
+package com.springframework.mypetclinic.Services.Map;
+
+import java.util.Set;
+
+import org.springframework.stereotype.Service;
+
+import com.springframework.mypetclinic.Model.Speciality;
+import com.springframework.mypetclinic.Services.SpecilitesService;
+
+@Service
+public class SpecilitesMapService extends AbstractMapServices<Speciality, Long> implements SpecilitesService{
+
+	@Override
+	public Set<Speciality> findall() {
+		// TODO Auto-generated method stub
+		return super.findall();
+	}
+
+	@Override
+	public Speciality findById(Long id) {
+		// TODO Auto-generated method stub
+		return super.findById(id);
+	}
+
+	@Override
+	public Speciality save(Speciality object) {
+		// TODO Auto-generated method stub
+		return super.save(object);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		super.deleteById(id);
+	}
+
+	@Override
+	public void delete(Speciality object) {
+		// TODO Auto-generated method stub
+		super.delete(object);
+	}
+
+	@Override
+	public Set<Speciality> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
