@@ -11,6 +11,7 @@ import com.springframework.mypetclinic.Services.SpecialityService;
 import com.springframework.mypetclinic.Services.VetService;
 
 @Service
+@Profile({"default","map"})
 public class VetMapService extends AbstractMapServices<Vet,Long> implements VetService {
 	private final SpecialityService specialityService;
 	

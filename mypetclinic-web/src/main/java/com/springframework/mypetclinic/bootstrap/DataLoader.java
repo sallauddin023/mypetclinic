@@ -10,10 +10,13 @@ import com.springframework.mypetclinic.Model.Pet;
 import com.springframework.mypetclinic.Model.PetType;
 import com.springframework.mypetclinic.Model.Speciality;
 import com.springframework.mypetclinic.Model.Vet;
+import com.springframework.mypetclinic.Model.Visit;
 import com.springframework.mypetclinic.Services.OwnerService;
 import com.springframework.mypetclinic.Services.PetTypeService;
 import com.springframework.mypetclinic.Services.SpecialityService;
 import com.springframework.mypetclinic.Services.VetService;
+import com.springframework.mypetclinic.Services.VisitService;
+import com.springframework.mypetclinic.repositories.VetRepository;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -22,16 +25,20 @@ public class DataLoader implements CommandLineRunner {
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialityService specialityService;
+	private final VisitService visitService;
 	
 	
 	
 
-	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,SpecialityService specialityService) {
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+			SpecialityService specialityService, VisitService visitService) {
 		super();
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialityService = specialityService;
+		this.visitService = visitService;
+		
 	}
 
 
@@ -88,13 +95,18 @@ public class DataLoader implements CommandLineRunner {
 		owner2.setCity("Hyderabad");
 		owner2.setTelephone("12154");
 		ownerService.save(owner2);
+		
+		
 		Pet FionaCat = new Pet();
 		FionaCat.setPetType(savedCatPetType);
 		FionaCat.setOwner(owner2);
 		FionaCat.setBirthDate(LocalDate.now());
 		FionaCat.setName("Just Cat");
 		owner2.getPets().add(FionaCat);
-		
+		Visit catVisit = new Visit();
+		catVisit.setPet(FionaCat);
+		catVisit.setDate(LocalDate.now());
+		catVisit.setDescription("abcde");
 		System.out.println("Loaded Owners ......");
 		
 		
