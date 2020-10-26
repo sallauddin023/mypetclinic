@@ -1,12 +1,15 @@
 package com.springframework.mypetclinic.Model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +29,9 @@ public class Pet extends BaseEntity {
     
     @Column(name = "birth_date")
     private LocalDate birthDate;
+    
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "pet")
+    private Set<Visit> vists = new HashSet<>();
 
     
     public String getName() {
@@ -59,4 +65,14 @@ public class Pet extends BaseEntity {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
+
+	public Set<Visit> getVists() {
+		return vists;
+	}
+
+	public void setVists(Set<Visit> vists) {
+		this.vists = vists;
+	}
+    
+    
 }
