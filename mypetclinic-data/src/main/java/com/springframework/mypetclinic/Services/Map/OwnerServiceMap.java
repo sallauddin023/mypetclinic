@@ -12,7 +12,6 @@ import com.springframework.mypetclinic.Services.PetService;
 import com.springframework.mypetclinic.Services.PetTypeService;
 
 @Service
-@Profile("springdatajpa")
 public class OwnerServiceMap extends AbstractMapServices<Owner,Long> implements OwnerService {
     
 	private final PetTypeService petTypeService;
